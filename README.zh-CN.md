@@ -5,6 +5,7 @@
 **离线 PE 分析引擎，同时是一个 MCP 服务——壳识别、OEP 定位、IAT 重建、反调试补丁、.NET 指纹、dump 修复。**
 
 [![node](https://img.shields.io/badge/node-%E2%89%A520.11-brightgreen)](https://nodejs.org)
+[![CI](https://github.com/lingbol088-spec/local-binary-index/actions/workflows/ci.yml/badge.svg)](https://github.com/lingbol088-spec/local-binary-index/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![deps](https://img.shields.io/badge/runtime%20deps-0-success)](package.json)
 [![MCP](https://img.shields.io/badge/MCP-stdio-8A2BE2)](https://modelcontextprotocol.io)

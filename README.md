@@ -5,6 +5,7 @@
 **Offline PE inspection engine that speaks MCP — packer ID, OEP hunting, IAT rebuild, anti-debug patches, .NET fingerprints, dump repair.**
 
 [![npm](https://img.shields.io/badge/node-%E2%89%A520.11-brightgreen)](https://nodejs.org)
+[![CI](https://github.com/lingbol088-spec/local-binary-index/actions/workflows/ci.yml/badge.svg)](https://github.com/lingbol088-spec/local-binary-index/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![dependencies](https://img.shields.io/badge/runtime%20deps-0-success)](package.json)
 [![tests](https://img.shields.io/badge/tests-10%20unit-informational)](test/analysis.test.ts)
