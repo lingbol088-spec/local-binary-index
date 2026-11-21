@@ -1,0 +1,26 @@
+// fixtures\packed-sample.exe · UPX · packed
+// 用法：x64dbg → 文件 → 载入脚本（或在命令栏逐条执行）
+// 说明：以下地址使用文件声明的 ImageBase；若开启 ASLR，先 `bp <模块名>:<RVA>` 或手工修正基址
+
+// --- 1. TLS 回调先下断（早于 EP 执行）---
+bp 0x0000000000401000
+
+// --- 2. 入口与候选 OEP ---
+bp 0x0000000000404000
+bp 0x0000000000401000   // push-ret 得分 100
+
+// --- 3. 间接转移（寄存器/内存跳转，命中后读目标）---
+
+// --- 4. 反调试热点（命中后决定 patch 或 hook）---
+bp 0x0000000000404010   // INT 2D 反调试（内核调试器异常）
+bp 0x0000000000401000   // TLS 回调（入口点之前执行）
+
+// --- 5. 到 OEP 后 dump ---
+// 命中 0x0000000000401000 后执行：
+// dump 0x0000000000400000, "dump_f965123c.bin"
+// 或用 Scylla 插件：右键 → Scylla → IAT Autosearch → Get Imports → Fix Dump
+
+// --- 6. ESP 定律（若存在 pushad）---
+// 在 pushad 之后执行：r esp → hr <esp值> → F9
+
+ret

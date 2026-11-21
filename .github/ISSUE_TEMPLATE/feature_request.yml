@@ -1,0 +1,32 @@
+name: Feature request
+description: New detection signature, output field, or integration.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What analysis question cannot be answered today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What should the tool return? Include the evidence you expect per result.
+    validations:
+      required: true
+  - type: textarea
+    id: fixture
+    attributes:
+      label: Reproducible fixture
+      description: How can this be reproduced with a generated sample? (No live malware.)
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Design constraints acknowledged
+      options:
+        - label: The proposal keeps the engine read-only (no execution of the target).
+          required: true
+        - label: The proposal adds no runtime dependencies.
+          required: true

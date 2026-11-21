@@ -1,0 +1,54 @@
+name: Bug report
+description: Something parsed wrong, crashed, or produced a misleading result.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do **not** attach live malware. Use a generated fixture (`npm run fixtures`) or a minimal hex description.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `lbi version`
+      placeholder: local-binary-index 1.4.3
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      description: OS + Node version
+      placeholder: Windows 11 26200 / Node 22.23.1
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command or tool call
+      description: Exact CLI command or MCP tool call with parameters
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Paste the JSON/Markdown excerpt or the error text
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmations
+      options:
+        - label: I am authorized to analyze this binary (owned / lab / CTF).
+          required: true
+        - label: I am not attaching live malware.
+          required: true

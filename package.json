@@ -1,0 +1,73 @@
+{
+  "name": "local-binary-index",
+  "version": "1.4.3",
+  "description": "Offline PE inspection engine + MCP server: packer/protector identification, OEP candidates, IAT rebuild plans, anti-debug patches, .NET obfuscation fingerprints, and memory-dump repair. Read-only, zero runtime dependencies.",
+  "license": "MIT",
+  "author": {
+    "name": "li lingbo",
+    "email": "lingbol088-spec@gmail.com"
+  },
+  "type": "module",
+  "bin": {
+    "lbi": "./bin/lbi.mjs",
+    "lbi-mcp": "./bin/lbi-mcp.mjs"
+  },
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/test",
+    "bin",
+    "skill",
+    "docs",
+    "README.md",
+    "README.zh-CN.md",
+    "DISCLAIMER.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20.11"
+  },
+  "keywords": [
+    "reverse-engineering",
+    "pe-format",
+    "mcp",
+    "model-context-protocol",
+    "packer-detection",
+    "unpacking",
+    "oep",
+    "iat",
+    "anti-debug",
+    "dotnet",
+    "malware-analysis",
+    "binary-analysis",
+    "static-analysis",
+    "windows",
+    "security-tools"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lingbol088-spec/local-binary-index.git"
+  },
+  "homepage": "https://github.com/lingbol088-spec/local-binary-index#readme",
+  "bugs": {
+    "url": "https://github.com/lingbol088-spec/local-binary-index/issues"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "fixtures": "node scripts/make-fixtures.mjs",
+    "pretest": "npm run build && npm run fixtures",
+    "test": "node --test dist/test/analysis.test.js",
+    "demo": "node bin/lbi.mjs zxwn analyze fixtures/packed-sample.exe --out ./out",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.9.3"
+  }
+}

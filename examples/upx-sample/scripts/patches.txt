@@ -1,0 +1,5 @@
+0x00000A10: 90 90	int2d: INT 2D 反调试（内核调试器异常）（CD 2D）
+0x00000A12: 90	icebp: ICEBP / INT1 指令（F1）
+0x00000AF8: 90	icebp: ICEBP / INT1 指令（F1）
+0x00000B2A: 90	icebp: ICEBP / INT1 指令（F1）
+0x00000D7B: 90	icebp: ICEBP / INT1 指令（F1）

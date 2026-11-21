@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: node ${{ matrix.node }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - name: End-to-end demo on generated fixture
+        run: node bin/lbi.mjs zxwn analyze fixtures/packed-sample.exe --out ./out --json > /dev/null
+        shell: bash
+      - name: Verify demo produced a report
+        run: test -f out/report.md
+        shell: bash
+      - name: Pack check
+        run: npm pack --dry-run

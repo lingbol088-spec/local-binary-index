@@ -1,0 +1,4 @@
+Scylla.exe -a -p <PID> -o <OUT_DUMP_FIXED.exe> --iat 0x00005200 --oep 0x00004000
+# Scylla 的参数名随版本略有差异；上命令是 2.x 形态，请按 --help 校对
+# x64dbg 自带的 Scylla 插件可直接在 OEP 处右键 Scylla
+# ordinal-only 导入（本文件 0 个）是重建时的主要难点

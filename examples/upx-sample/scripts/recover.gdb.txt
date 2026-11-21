@@ -1,0 +1,8 @@
+# fixtures\packed-sample.exe — gdb/lldb 命令序列
+# 载入：gdb -q <binary>（Windows 下用 gdb 需匹配架构）
+b *0x0000000000401000   # tls-callback-0
+b *0x0000000000404000   # entry point
+b *0x0000000000401000   # oep push-ret score=100
+run
+# 命中 pushad 后：watch *(unsigned long*)$rsp
+# dump：dump binary memory dump.bin <start> <end>

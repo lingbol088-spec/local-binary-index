@@ -1,0 +1,7 @@
+* fixtures\packed-sample.exe — WinDbg 命令序列
+bp 0x0000000000401000
+bp 0x0000000000404000
+bp 0x0000000000401000
+g
+* 命中后：ba r 1 @esp
+* dump：.writemem dump_f965123c.bin 0x0000000000400000 L?0x00006000
